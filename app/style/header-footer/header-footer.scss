@@ -8,6 +8,7 @@ footer {
     width: 100%;
     height: 3rem;
     @include var.backgroundColorHeader;
+    z-index: 100;
 }
 
 header {

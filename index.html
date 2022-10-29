@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./app/style/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
     <title>Reality in US</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
     <header>
 
         <div class="max-width">
-            <h1>Reality in US</h1>
+            <h1>Bayout</h1>
         
             <!-- menu -->
             <ul class="menu">
@@ -34,7 +34,7 @@
     <main>
 
         <!-- place for the template products -->
-        <div id="products_place_id">
+        <div class="cards" id="property_place_id">
 
         </div>
 
@@ -47,8 +47,32 @@
 
 
     <!-- templates -->
-    
-    
+    <template id="template_cards_id">
+        <div class="card">
+            <img class="bac-img" src="${img}" alt="">
+            <div class="header">
+                <h2>${name}</h2>
+            </div>
+            <div class="images">
+                <img src="${img}" alt="">
+                <img src="${img}" alt="">
+                <img src="${img}" alt="">
+                <img src="${img}" alt="">
+            </div>
+            <div class="details">
+                <ul>
+                    <li><p>${purpose}</p></li>
+                    <li><p>${state}</p></li>
+                    <li><p>rooms: ${rooms}</p></li>
+                    <li><p>$${price}</p></li>
+                </ul>
+            </div>
+            <div class="button">
+                <button>See More</button>
+            </div>
+        </div>
+    </template>
+
     <script src="./app/script/Api.js"></script>
     <script src="./app/script/app.js"></script>
 </body>
