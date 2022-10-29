@@ -1,0 +1,18 @@
+@use '../variables/variables.scss' as var;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 4rem 1rem;
+    width: 100%;
+    min-height: 100vh;
+    @include var.center;
+    flex-direction: column;
+    font-family: var.$fontFamily;
+    @include var.backgroundColor;
+}

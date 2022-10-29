@@ -1,0 +1,85 @@
+@use '../variables/variables.scss' as var;
+
+header,
+footer {
+    position: fixed;
+    padding: 0.3rem 0;
+    margin: 0;
+    width: 100%;
+    height: 3rem;
+    @include var.backgroundColorHeader;
+}
+
+header {
+    top: 0;
+    display: flex;
+    justify-content: center;
+
+    .max-width {
+        padding: 0rem 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 1300px;
+    
+        h1 {
+            @include var.headerLinearGradient;
+        }
+    
+        
+        ul.menu {
+            @include var.center;
+            list-style: none;
+            
+            li {
+                margin-left: 1rem;
+                position: relative;
+                display: inline-block;
+
+                a {
+                    text-decoration: none;
+                    color: var.$hrefColor;
+                    font-weight: bolder;
+                }
+
+                ul {
+                    position: absolute;
+                    display: none;
+
+                    li {
+                        padding: 0.5rem;
+                        margin: 0;
+                        width: 100%;
+                        background-color: #111;
+
+                        a:hover {
+                            color: var.$hrefHover;
+                        }
+                    }
+                }
+
+                &:hover {
+                    a.first-a {
+                        color: var.$hrefHover;
+                    }
+
+                    ul {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    
+    
+}
+
+footer{
+    bottom: 0;
+
+    h3 {
+        text-align: center;
+        @include var.headerLinearGradient;
+    }
+}

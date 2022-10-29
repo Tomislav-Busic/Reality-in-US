@@ -1,0 +1,9 @@
+@use '../variables/variables.scss' as var;
+
+main {
+    @include var.center;
+    padding: 0 4rem;
+    width: 100%;
+    max-width: 1300px;
+    background-color: antiquewhite;
+}
