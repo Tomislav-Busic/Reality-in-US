@@ -153,7 +153,7 @@ main .cards {
 }
 .card .images img {
   margin: 0.1rem 0.3rem;
-  border: 1px solid #FFC837;
+  border: 1px solid #222;
   height: 2rem;
   width: 2rem;
   cursor: zoom-in;

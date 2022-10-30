@@ -48,22 +48,22 @@
 
     <!-- templates -->
     <template id="template_cards_id">
-        <div class="card">
+        <div class="card" id="${id}">
             <img class="bac-img" src="${img}" alt="">
             <div class="header">
-                <h2>${name}</h2>
+                <h2>${city} | ${line}</h2>
             </div>
             <div class="images">
-                <img src="${img}" alt="">
-                <img src="${img}" alt="">
-                <img src="${img}" alt="">
-                <img src="${img}" alt="">
+                <img onclick="replaceImg(this)" src="${imgOne}" alt="">
+                <img onclick="replaceImg(this)" src="${imgTwo}" alt="">
+                <img onclick="replaceImg(this)" src="${imgThree}" alt="">
+                <img onclick="replaceImg(this)" src="${imgFour}" alt="">
             </div>
             <div class="details">
                 <ul>
                     <li><p>${purpose}</p></li>
                     <li><p>${state}</p></li>
-                    <li><p>rooms: ${rooms}</p></li>
+                    <li><p>${type}</p></li>
                     <li><p>$${price}</p></li>
                 </ul>
             </div>
