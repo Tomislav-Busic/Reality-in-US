@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <title>Reality in US</title>
+</head>
+<body>
+    
+    <main id="place_property_id">
+
+    </main>
+
+    <!-- templates -->
+    <template id="property_id">
+        <div class="property">
+            <div class="image-slider">
+                <button class="left"><</button>
+                <div id="images_place_id">
+                </div>
+                <button class="right">></button>
+            </div>
+            <div class="details">
+                <div class="description">
+                    <p>${description}</p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <script src="./script/Api.js"></script>
+    <script src="./script/property.js"></script>
+</body>
+</html>

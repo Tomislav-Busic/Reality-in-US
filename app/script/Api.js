@@ -1,8 +1,10 @@
 class Api{
     constructor(){
+        this.prop_id = ''
 
         this.fetchPropertiesForSale();
         this.fetchPropertiesForRent();
+        this.getPropertyById(this.prop_id);
     }
 
     async fetchPropertiesForSale() {
@@ -46,10 +48,32 @@ class Api{
             console.log(e);
         }
     }
+
+    async getPropertyById(prop_id) {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '3819bbdfbemsh728d704970277e1p165420jsn747a79b95703',
+                'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
+            }
+        };
+
+        try {
+            const response = await fetch(`https://realty-in-us.p.rapidapi.com/properties/v2/detail?property_id=${prop_id}`, options);
+            const data = await response.json();
+            let properties = data.properties['0'];
+
+            return properties;
+        } catch(e) {
+            console.log(e);
+        }
+        
+    }
 }
 
 
 
+	
 
 
 

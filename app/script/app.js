@@ -1,12 +1,12 @@
 let footerHeader = document.getElementById('.footer_date_id');
 footer_date_id.innerText += ` ${new Date().getFullYear()}`;
 
-let placeForProperty = document.getElementById('property_place_id');
+let placeForProperty = document.getElementById('properties_place_id');
 
 let allProperties = [];
 
 
-async function fetchPropertiesData(){
+async function getPropertiesData(){
 	let propRent = new Api();
 	propRent = await propRent.fetchPropertiesForRent();
 	
@@ -20,7 +20,7 @@ const displayAllProperties = (data) => {
 	let properties = data?.map(item => {
 		template_property = template_cards_id.innerHTML;
 
-		template_property = template_property.replaceAll('${id}', item.listing_id);
+		template_property = template_property.replaceAll('${id}', item.property_id);
 		template_property = template_property.replaceAll('${city}', item.address.city);
 		template_property = template_property.replaceAll('${line}', item.address.line); 
 		template_property = template_property.replaceAll('${img}', item.photos['0'].href);
@@ -55,5 +55,14 @@ const replaceImg = (img) => {
 	imgSrc.src = thisSrc;
 }
 
+const openDetails = (btn) => {
+	let thisParent = btn.closest('.card');
+	let thisId = thisParent.getAttribute('id');
+	
+	localStorage.setItem('thisId', thisId);
 
-fetchPropertiesData();
+	window.location.href = './app/property.html';
+}
+
+
+getPropertiesData();
