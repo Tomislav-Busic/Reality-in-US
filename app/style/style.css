@@ -153,7 +153,7 @@ main .cards {
 }
 .card .images img {
   margin: 0.1rem 0.3rem;
-  border: 1px solid #222;
+  border: 1.5px solid #222;
   height: 2rem;
   width: 2rem;
   cursor: zoom-in;
@@ -177,8 +177,23 @@ main .cards {
 .card .details ul li {
   padding: 0.2rem 0.5rem;
 }
+.card .details ul li h2 {
+  font-weight: 700;
+  font-size: 1rem; /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
 .card .details ul li p {
-  color: #FF8008;
+  font-weight: 700;
+  font-size: 1rem; /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.card .details ul li:last-child p {
+  text-transform: uppercase;
 }
 .card .button {
   position: absolute;
@@ -221,11 +236,17 @@ main .cards {
   width: 100%;
   max-width: 40rem;
   position: relative;
+  margin-bottom: 3rem;
 }
 .property .image-slider img {
   width: 100%;
   height: 100%;
+  max-height: 26rem;
   display: none;
+  border-radius: 1rem;
+  border-top: 0.5rem solid #FF8008;
+  border-bottom: 0.5rem solid #FF8008;
+  box-shadow: 0.5rem 1rem 1rem #222;
 }
 .property .image-slider img:first-child {
   display: block;
@@ -233,7 +254,34 @@ main .cards {
 .property .image-slider button {
   position: absolute;
   top: 40%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.property .image-slider button:hover i {
+  color: #FFC837;
+  transform: scale(1.5);
+}
+.property .image-slider button i {
+  padding: 1rem;
+  background: none;
+  font-size: 3rem;
+  font-weight: bolder;
+  color: #FF8008;
+  transition: 0.5s ease-in-out;
+}
+.property .image-slider .left i {
+  transform: rotate(-180deg);
+}
+.property .image-slider .left i:hover {
+  transform: scale(1.5) rotate(-180deg);
 }
 .property .image-slider .right {
   right: 0;
+}
+
+@media (max-width: 700px) {
+  .property .image-slider img {
+    max-height: 14rem;
+  }
 }/*# sourceMappingURL=style.css.map */

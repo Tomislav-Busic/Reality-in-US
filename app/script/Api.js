@@ -1,17 +1,19 @@
 class Api{
     constructor(){
-        this.prop_id = ''
+        this.prop_id = '';
+        this.lng = '';
+        this.lat = '';
 
         this.fetchPropertiesForSale();
         this.fetchPropertiesForRent();
-        this.getPropertyById(this.prop_id);
+        this.getPropertyById(this.prop_id); 
     }
 
     async fetchPropertiesForSale() {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '3819bbdfbemsh728d704970277e1p165420jsn747a79b95703',
+                'X-RapidAPI-Key': '9a0fefd228msh1509214cd533763p1c7922jsn0fbda7814728',
                 'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
             }
         };
@@ -32,17 +34,17 @@ class Api{
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '3819bbdfbemsh728d704970277e1p165420jsn747a79b95703',
+                'X-RapidAPI-Key': '9a0fefd228msh1509214cd533763p1c7922jsn0fbda7814728',
                 'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
             }
         };
 
         try {
-            const response = await fetch('https://realty-in-us.p.rapidapi.com/properties/v2/list-for-rent?city=New%20York%20City&state_code=NY&limit=200&offset=0&sort=relevance', options);
+            const response = await fetch('https://realty-in-us.p.rapidapi.com/properties/list-for-rent?state_code=NY&city=New%20York%20City&limit=200&offset=0&sort=relevance', options);
             const data = await response.json();
-            let properties = data.properties;
+            let listings = data.listings;
 
-            return properties;
+            return listings;
 
         } catch(e) {
             console.log(e);
@@ -53,27 +55,27 @@ class Api{
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '3819bbdfbemsh728d704970277e1p165420jsn747a79b95703',
+                'X-RapidAPI-Key': '9a0fefd228msh1509214cd533763p1c7922jsn0fbda7814728',
                 'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
             }
         };
 
         try {
-            const response = await fetch(`https://realty-in-us.p.rapidapi.com/properties/v2/detail?property_id=${prop_id}`, options);
+            const response = await fetch(`https://realty-in-us.p.rapidapi.com/properties/detail?listing_id=608763437&prop_status=for_sale&property_id=${prop_id}`, options);
             const data = await response.json();
-            let properties = data.properties['0'];
+            let listing = data.listing;
 
-            return properties;
+            return listing;
         } catch(e) {
             console.log(e);
         }
         
-    }
+    } 
 }
 
 
 
-	
-
+/* https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyAfrTNx21m1BpOFe12uPZsCof8An3TKutk
+ */
 
 

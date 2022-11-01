@@ -11,7 +11,7 @@ async function getPropertiesData(){
 	propRent = await propRent.fetchPropertiesForRent();
 	
 	
-	displayAllProperties(propRent)
+	displayAllProperties(propRent);
 	console.log(propRent);
 }
  
@@ -21,17 +21,16 @@ const displayAllProperties = (data) => {
 		template_property = template_cards_id.innerHTML;
 
 		template_property = template_property.replaceAll('${id}', item.property_id);
-		template_property = template_property.replaceAll('${city}', item.address.city);
-		template_property = template_property.replaceAll('${line}', item.address.line); 
-		template_property = template_property.replaceAll('${img}', item.photos['0'].href);
-		template_property = template_property.replaceAll('${imgOne}', item.photos['1']?.href);
-		template_property = template_property.replaceAll('${imgTwo}', item.photos['2']?.href);
-		template_property = template_property.replaceAll('${imgThree}', item.photos['3']?.href);
-		template_property = template_property.replaceAll('${imgFour}', item.photos['0'].href);  
+		template_property = template_property.replaceAll('${city}', item.address_new.city);
+		template_property = template_property.replaceAll('${line}', item.address_new.postal_code); 
+		template_property = template_property.replaceAll('${img}', item?.photo);
+		template_property = template_property.replaceAll('${imgOne}', item?.photo);
+		template_property = template_property.replaceAll('${imgTwo}', item?.photo);
+		template_property = template_property.replaceAll('${imgThree}', item?.photo);
+		template_property = template_property.replaceAll('${imgFour}', item?.photo);  
 		template_property = template_property.replaceAll('${purpose}', changePurpose(item.prop_status));
-		template_property = template_property.replaceAll('${state}', item.listing_status);
-		template_property = template_property.replaceAll('${type}', item.prop_type); 
-		template_property = template_property.replaceAll('${price}', item.community?.price_max);  
+		template_property = template_property.replaceAll('${type}', changePurpose(item.prop_type)); 
+		template_property = template_property.replaceAll('${price}', item.price);  
 
 		return template_property;
 	}).join('');
@@ -40,8 +39,13 @@ const displayAllProperties = (data) => {
 } 
 
 const changePurpose = (purpose) => {
-	if (purpose === 'for_rent') {
-		purpose = 'for rent'
+	switch (purpose) {
+		case 'for_rent':
+			purpose = 'for rent';
+			break;
+		case 'single_family':
+			purpose = 'single <br> family';
+			break;
 	}
 
 	return purpose;
@@ -65,4 +69,5 @@ const openDetails = (btn) => {
 }
 
 
-getPropertiesData();
+getPropertiesData(); 
+
