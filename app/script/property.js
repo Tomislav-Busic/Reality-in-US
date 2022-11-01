@@ -19,8 +19,8 @@ async function getProperty() {
 const displayProperty = (item) => {
     template_property = property_id.innerHTML;
 
-    template_property = template_property.replaceAll('${photo}', item.photos['0'].href);
-    template_property = template_property.replaceAll('${description}', item.description);
+    template_property = template_property.replaceAll('${photo}', item.photos?.['0'].href ? item.photos?.['0'].href : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbGoeZg06hhqGsjJ-DrxjgEmU5o7Jua2vB9Q&usqp=CAU');
+    template_property = template_property.replaceAll('${description}', item?.description);
     template_property = template_property.replaceAll('${lat}', item.address.lat);
     template_property = template_property.replaceAll('${long}', item.address.long);
 

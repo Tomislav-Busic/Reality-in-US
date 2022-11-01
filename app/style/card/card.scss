@@ -25,10 +25,10 @@
         z-index: 50;
 
         h2 {
-            padding: 0.2rem 0;
+            padding: 0.3rem 0;
             text-align: center;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: var.$fontSize;
             @include var.headerLinearGradient;
             text-transform: uppercase;
         }
@@ -54,6 +54,7 @@
     .details {
         position: absolute;
         right: 0;
+        min-width: 30%;;
         top: 2rem;
         bottom: 0;
         border-bottom-right-radius: 0.5rem; 
@@ -67,21 +68,21 @@
             li {
                 padding: 0.2rem 0.5rem;
 
-                h2 {
-                    font-weight: 700;
-                    font-size: 1rem;
-                    @include var.headerLinearGradient;
-                    text-transform: uppercase;
-                }
-
                 p {
                     font-weight: 700;
-                    font-size: 1rem;
+                    font-size: 0.8rem;
                     @include var.headerLinearGradient;
+                    text-transform: uppercase;
+
+                    i {
+                        font-size: var.$fontSize;
+                        padding-right: 0.5rem;
+                    }
                 }
 
                 &:last-child p {
-                    text-transform: uppercase;
+                    font-size: var.$fontSize;
+                    padding-top: 2rem;
                 }
             }
         }
@@ -99,17 +100,16 @@
             color: var.$fontColor;
             font-family: var.$fontFamily;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 1rem;
             border: none;
             border-radius: 0.2rem;
             cursor: pointer;
-            transition: 0.5s ease-in-out;
             transform: (50%, 50%);
+            transition: 0.5s ease-in-out;
     
             &:hover {
                 background: var.$hrefHover;
                 color: var.$fontColor;
-                font-weight: 700;
                 transform: scale(1.2);
             }
         }

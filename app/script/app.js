@@ -23,13 +23,15 @@ const displayAllProperties = (data) => {
 		template_property = template_property.replaceAll('${id}', item.property_id);
 		template_property = template_property.replaceAll('${city}', item.address_new.city);
 		template_property = template_property.replaceAll('${line}', item.address_new.postal_code); 
-		template_property = template_property.replaceAll('${img}', item?.photo);
-		template_property = template_property.replaceAll('${imgOne}', item?.photo);
-		template_property = template_property.replaceAll('${imgTwo}', item?.photo);
-		template_property = template_property.replaceAll('${imgThree}', item?.photo);
-		template_property = template_property.replaceAll('${imgFour}', item?.photo);  
+		template_property = template_property.replaceAll('${img}', item?.photo ? item?.photo : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbGoeZg06hhqGsjJ-DrxjgEmU5o7Jua2vB9Q&usqp=CAU');
+		template_property = template_property.replaceAll('${imgOne}', item?.photo ? item?.photo : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbGoeZg06hhqGsjJ-DrxjgEmU5o7Jua2vB9Q&usqp=CAU');
+		template_property = template_property.replaceAll('${imgTwo}', item?.photo ? item?.photo : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbGoeZg06hhqGsjJ-DrxjgEmU5o7Jua2vB9Q&usqp=CAU');;
+		template_property = template_property.replaceAll('${imgThree}', item?.photo ? item?.photo : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbGoeZg06hhqGsjJ-DrxjgEmU5o7Jua2vB9Q&usqp=CAU');
+		template_property = template_property.replaceAll('${imgFour}', item?.photo ? item?.photo : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbGoeZg06hhqGsjJ-DrxjgEmU5o7Jua2vB9Q&usqp=CAU');  
 		template_property = template_property.replaceAll('${purpose}', changePurpose(item.prop_status));
 		template_property = template_property.replaceAll('${type}', changePurpose(item.prop_type)); 
+		template_property = template_property.replaceAll('${baths}', item.baths);  
+		template_property = template_property.replaceAll('${beds}', item.beds);  
 		template_property = template_property.replaceAll('${price}', item.price);  
 
 		return template_property;
@@ -44,7 +46,7 @@ const changePurpose = (purpose) => {
 			purpose = 'for rent';
 			break;
 		case 'single_family':
-			purpose = 'single <br> family';
+			purpose = 'single family';
 			break;
 	}
 
