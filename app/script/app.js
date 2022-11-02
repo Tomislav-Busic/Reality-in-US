@@ -6,6 +6,9 @@ let menu = document.querySelector('.menu');
 
 let placeForProperty = document.getElementById('properties_place_id');
 
+let searchByCity = document.getElementById('input_city_id');
+let filterAndSortByOptions = document.getElementById('select_option_id');
+
 let allProperties = [];
 let propertiesForRent = [];
 let propertiesForSale = [];
@@ -82,6 +85,32 @@ const changePurpose = (purpose) => {
 
 	return purpose;
 }
+
+//Filter the data by the city by name
+searchByCity.addEventListener('input', (e) => {
+	let value = e.target.value.toLowerCase();
+
+	let filterByCityName = allProperties.filter(city => 
+		city.address_new.city.toLowerCase().includes(value));
+
+		displayAllProperties(filterByCityName);
+});
+
+/* filterAndSortByOptions.addEventListener('change', (e) => {
+	let value = e.target.value;
+
+	switch (value) {
+		case 'all':
+			displayAllProperties(allProperties);
+			break;
+		case 'for-rent':
+			displayAllProperties(propertiesForRent);
+			break;
+		case 'for-sale':
+			displayAllProperties(propertiesForSale);
+			break;
+	}
+}); */
 
 //Replace the small img with big.
 //It's work but this api dont have more images
