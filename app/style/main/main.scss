@@ -2,8 +2,34 @@
 
 main {
     @include var.center;
+    flex-direction: column;
     width: 100%;
     max-width: 1400px;
+
+    .filter {
+        padding: 5rem 1rem;
+        @include var.center;
+        flex-wrap: wrap;
+
+        input {
+            @include var.filter;
+
+            &:focus {
+                outline: none;
+                border: 2px solid var.$hrefHover;
+            }
+        }
+
+        select {
+            @include var.filter;
+
+            option {
+                font-family: var.$fontFamily;
+                font-size: var.$fontSize;
+                font-weight: 700;
+            }
+        }
+    }
 
     .cards {
         @include var.center;

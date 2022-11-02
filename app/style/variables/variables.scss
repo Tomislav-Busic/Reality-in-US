@@ -4,31 +4,44 @@ $fontColor: #222;
 $hrefColor: #FF8008;
 $hrefHover: #FFC837;
 
-@mixin center{
+@mixin center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-@mixin backgroundColorHeader{
+@mixin filter {
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    border: 2px solid $hrefColor;
+    border-radius: 0.5rem;
+    @include backgroundColorHeader();
+    color: $hrefColor;
+    font-size: $fontSize;
+    font-family: $fontFamily;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@mixin backgroundColorHeader {
     background: #000000;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-@mixin backgroundColorDetails{
+@mixin backgroundColorDetails {
     background: #000000;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #111, #000000);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #111, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-@mixin backgroundColor{
+@mixin backgroundColor {
     background: #FF8008;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #FFC837, #FF8008);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
 
-@mixin headerLinearGradient{
+@mixin headerLinearGradient {
     background: -webkit-linear-gradient(to right, #FFC837, #FF8008);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     -webkit-background-clip: text;

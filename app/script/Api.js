@@ -1,8 +1,6 @@
 class Api{
     constructor(){
         this.prop_id = '';
-        this.lng = '';
-        this.lat = '';
 
         this.fetchPropertiesForSale();
         this.fetchPropertiesForRent();

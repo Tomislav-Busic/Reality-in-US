@@ -97,8 +97,52 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 100%;
   max-width: 1400px;
+}
+main .filter {
+  padding: 5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+main .filter input {
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border: 2px solid #FF8008;
+  border-radius: 0.5rem;
+  background: #000000; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #FF8008;
+  font-size: 1.1rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+main .filter input:focus {
+  outline: none;
+  border: 2px solid #FFC837;
+}
+main .filter select {
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border: 2px solid #FF8008;
+  border-radius: 0.5rem;
+  background: #000000; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #FF8008;
+  font-size: 1.1rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+main .filter select option {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
 }
 main .cards {
   display: flex;

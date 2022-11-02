@@ -4,15 +4,23 @@ footer_date_id.innerText += ` ${new Date().getFullYear()}`;
 let placeForProperty = document.getElementById('properties_place_id');
 
 let allProperties = [];
+let propertiesForRent = [];
+let propertiesForSale = [];
 
 
 async function getPropertiesData(){
 	let propRent = new Api();
 	propRent = await propRent.fetchPropertiesForRent();
+	propertiesForRent = propRent;
 	
+	let propSale = new Api();
+	propSale = await propSale.fetchPropertiesForSale();
+	propertiesForSale = propSale;
+
+	allProperties = [ ...propRent, ...propSale ];
 	
-	displayAllProperties(propRent);
-	console.log(propRent);
+	displayAllProperties(allProperties);
+	console.log(allProperties);
 }
  
 
@@ -44,6 +52,9 @@ const changePurpose = (purpose) => {
 	switch (purpose) {
 		case 'for_rent':
 			purpose = 'for rent';
+			break;
+		case 'for_sale':
+			purpose = 'for sale';
 			break;
 		case 'single_family':
 			purpose = 'single family';

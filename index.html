@@ -34,10 +34,29 @@
     <!-- main -->
     <main>
 
-        <!-- place for the template products -->
-        <div class="cards" id="properties_place_id">
+        <!-- input and options -->
+        <div class="filter">
+
+            <input type="text" placeholder="Search by city">
+
+            <select id="select_option_id">
+                <option value="all">All properties</option>
+                <option value="for-rent">For rent</option>
+                <option value="for-sale">For sale</option>
+                <option value="rent-higher">Rent - Higher price</option>
+                <option value="rent-lower">Rent - Lower price</option>
+                <option value="sale-higher">Sale - Higher price</option>
+                <option value="sale-lower">Sale - Lower price</option>
+                <option value="apartment">Apartment</option>
+                <option value="townhome">Townhome</option>
+                <option value="condo">Condo</option>
+                <option value="single-family">Single family</option>
+            </select>
 
         </div>
+
+        <!-- place for the template products -->
+        <div class="cards" id="properties_place_id"></div>
 
     </main>
 
