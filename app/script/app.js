@@ -96,7 +96,7 @@ searchByCity.addEventListener('input', (e) => {
 		displayAllProperties(filterByCityName);
 });
 
-/* filterAndSortByOptions.addEventListener('change', (e) => {
+filterAndSortByOptions.addEventListener('change', (e) => {
 	let value = e.target.value;
 
 	switch (value) {
@@ -110,7 +110,7 @@ searchByCity.addEventListener('input', (e) => {
 			displayAllProperties(propertiesForSale);
 			break;
 	}
-}); */
+}); 
 
 //Replace the small img with big.
 //It's work but this api dont have more images
