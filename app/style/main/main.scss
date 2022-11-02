@@ -36,3 +36,11 @@ main {
         flex-wrap: wrap;
     }
 }
+
+@media (max-width: '900px') {
+    main {
+        .filter {
+            padding: 2rem 1rem;
+        }
+    }
+}

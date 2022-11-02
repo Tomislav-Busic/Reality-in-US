@@ -82,6 +82,15 @@ header .max-width ul.menu li:hover a.first-a {
 header .max-width ul.menu li:hover ul {
   display: block;
 }
+header .max-width .menu-btn {
+  display: none;
+  background: none;
+  border: none;
+}
+header .max-width .menu-btn i {
+  color: #FF8008;
+  font-size: 2rem;
+}
 
 footer {
   bottom: 0;
@@ -93,6 +102,43 @@ footer h3 {
   -webkit-text-fill-color: transparent;
 }
 
+@media (max-width: 900px) {
+  header .max-width {
+    position: relative;
+    padding: 0 1rem;
+  }
+  header .max-width h1 {
+    font-size: 1.3rem;
+  }
+  header .max-width ul.menu {
+    position: absolute;
+    top: 2.5rem;
+    right: -15rem;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+  }
+  header .max-width ul.menu li {
+    background: #000000; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #111, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 10rem;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+  }
+  header .max-width ul.menu li ul {
+    z-index: 150;
+    position: absolute;
+    right: 0;
+  }
+  header .max-width ul.menu li ul li {
+    width: 10rem;
+    padding: 0.5rem 1rem;
+  }
+  header .max-width .menu-btn {
+    display: block;
+  }
+}
 main {
   display: flex;
   align-items: center;
@@ -142,7 +188,6 @@ main .filter select option {
   font-family: "Roboto", sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
-  cursor: pointer;
 }
 main .cards {
   display: flex;
@@ -151,6 +196,11 @@ main .cards {
   flex-wrap: wrap;
 }
 
+@media (max-width: 900px) {
+  main .filter {
+    padding: 2rem 1rem;
+  }
+}
 .card {
   margin: 1rem;
   height: 15rem;

@@ -70,6 +70,17 @@ header {
                 }
             }
         }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+
+            i {
+                color: var.$hrefColor;
+                font-size: 2rem;
+            }
+        }
     }
 
     
@@ -82,5 +93,50 @@ footer{
     h3 {
         text-align: center;
         @include var.headerLinearGradient;
+    }
+}
+
+@media (max-width: '900px') {
+    header {
+        .max-width {
+            position: relative;
+            padding : 0 1rem;
+
+            h1 {
+                font-size: 1.3rem;
+            }
+
+            ul.menu {
+                position: absolute;
+                top: 2.5rem;
+                right: -15rem;
+                flex-direction: column;
+                transition: 0.5s ease-in-out;
+
+                li {
+                    @include var.backgroundColorDetails;
+                    width: 10rem;
+                    padding: 0.5rem 1rem;
+                    margin: 0;
+                    display: inline-block;
+                    position: relative;
+
+                    ul {
+                        z-index: 150;
+                        position: absolute;
+                        right: 0;
+
+                        li {
+                           width: 10rem;
+                           padding: 0.5rem 1rem;
+                        }
+                    }
+                }
+            }
+
+            .menu-btn {
+                display: block;
+            }
+        }
     }
 }

@@ -1,13 +1,31 @@
 let footerHeader = document.getElementById('.footer_date_id');
 footer_date_id.innerText += ` ${new Date().getFullYear()}`;
 
+let menuBtn = document.querySelector('.menu-btn');
+let menu = document.querySelector('.menu');
+
 let placeForProperty = document.getElementById('properties_place_id');
 
 let allProperties = [];
 let propertiesForRent = [];
 let propertiesForSale = [];
 
+//Toggle with the menu btn
+menuBtn.addEventListener('click', () => {
+	if (menu.style.right === '-15rem') {
+		menu.style.right = '0';
+	} else {
+		menu.style.right = '-15rem';
+	}
+});
 
+//Close the menu when scroll
+window.addEventListener('scroll', () => {
+	menu.style.right = '-15rem';
+});
+
+
+//Get data for the properties form class Api();
 async function getPropertiesData(){
 	let propRent = new Api();
 	propRent = await propRent.fetchPropertiesForRent();
@@ -23,7 +41,7 @@ async function getPropertiesData(){
 	console.log(allProperties);
 }
  
-
+//Show the data. Replace data in the template then put this template on appropriate place
 const displayAllProperties = (data) => {
 	let properties = data?.map(item => {
 		template_property = template_cards_id.innerHTML;
@@ -48,6 +66,7 @@ const displayAllProperties = (data) => {
 	placeForProperty.innerHTML = properties;
 } 
 
+//Change the name then return this name 
 const changePurpose = (purpose) => {
 	switch (purpose) {
 		case 'for_rent':
@@ -64,6 +83,8 @@ const changePurpose = (purpose) => {
 	return purpose;
 }
 
+//Replace the small img with big.
+//It's work but this api dont have more images
 const replaceImg = (img) => {
 	let thisSrc  = img.getAttribute('src');
 	let parentImg = img.closest('.card');
@@ -72,6 +93,7 @@ const replaceImg = (img) => {
 	imgSrc.src = thisSrc;
 }
 
+//Takes id form the this card and send it to the localStorage
 const openDetails = (btn) => {
 	let thisParent = btn.closest('.card');
 	let thisId = thisParent.getAttribute('id');

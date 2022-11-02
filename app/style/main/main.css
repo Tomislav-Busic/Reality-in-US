@@ -53,4 +53,10 @@ main .cards {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  main .filter {
+    padding: 2rem 1rem;
+  }
 }/*# sourceMappingURL=main.css.map */
