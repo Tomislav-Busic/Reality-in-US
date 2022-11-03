@@ -99,6 +99,14 @@ searchByCity.addEventListener('input', (e) => {
 filterAndSortByOptions.addEventListener('change', (e) => {
 	let value = e.target.value;
 
+	const filterByTypeOfProperty = (type) => {
+		let filterPropertyType = allProperties.filter(item =>
+			item.prop_type === type
+			);
+		
+		return filterPropertyType;
+	}
+
 	switch (value) {
 		case 'all':
 			displayAllProperties(allProperties);
@@ -108,6 +116,42 @@ filterAndSortByOptions.addEventListener('change', (e) => {
 			break;
 		case 'for-sale':
 			displayAllProperties(propertiesForSale);
+			break;
+		case 'rent-higher':
+			let sortByHigherPriceForRent = propertiesForRent.sort((a, b) => 
+				b.price_raw - a.price_raw
+				);
+			displayAllProperties(sortByHigherPriceForRent);
+			break;
+		case 'rent-lower':
+			let sortByLowerPriceForRent = propertiesForRent.sort((a, b) => 
+				a.price_raw - b.price_raw
+				);
+			displayAllProperties(sortByLowerPriceForRent);
+			break;
+		case 'sale-higher':
+			let sortByHigherPriceForSale = propertiesForSale.sort((a, b) => 
+				b.price_raw - a.price_raw
+				);
+			displayAllProperties(sortByHigherPriceForSale);
+			break;
+		case 'sale-lower':
+			let sortByLowerPriceForSale = propertiesForSale.sort((a, b) => 
+				a.price_raw - b.price_raw
+				);
+			displayAllProperties(sortByLowerPriceForSale);
+			break;
+		case 'apartment':
+			displayAllProperties(filterByTypeOfProperty('apartment'));
+			break;
+		case 'townhome':
+			displayAllProperties(filterByTypeOfProperty('townhome'));
+			break;
+		case 'condo':
+			displayAllProperties(filterByTypeOfProperty('condo'));
+			break;
+		case 'single-family':
+			displayAllProperties(filterByTypeOfProperty('single_family'));
 			break;
 	}
 }); 
