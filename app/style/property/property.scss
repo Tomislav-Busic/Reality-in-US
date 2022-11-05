@@ -5,6 +5,8 @@
     min-height: 100vh;
     @include var.center;
     flex-direction: column;
+    color: var.$fontColor;
+    font-family: var.$fontFamily;
 
     .image-slider { 
         width: 100%;
@@ -60,6 +62,104 @@
         .right {
             right: 0;
         }
+
+        h1 {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            top: 10%;
+            font-size: 4rem;
+            color: var.$hrefColor;
+            letter-spacing: 0.2rem;
+            opacity: 0.5;
+        }
+    }
+
+    .cards {
+        @include var.center;
+        flex-wrap: wrap;
+        margin: 2rem 0;
+
+        .card {
+            @include var.center;
+            flex-direction: column;
+            @include var.backgroundColorHeader;
+            margin: 1rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            box-shadow: 0.5rem 1rem 1rem var.$fontColor;
+    
+            h3 {
+                @include var.headerLinearGradient;
+            }
+            
+            ul {
+                list-style: none;
+    
+                li {
+                    padding-top: 0.2rem;
+    
+                    p {
+                        @include var.headerLinearGradient;
+                        font-size: var.$fontSize;
+                        font-weight: 400;
+
+                        span {
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .description {
+        margin: 2rem 1rem;
+        padding: 1rem;
+        width: 100;
+        max-width: 60rem;
+        @include var.backgroundColorHeader;
+        text-align: center;
+        border-radius: 1rem;
+        box-shadow: 0.5rem 1rem 1rem var.$fontColor;
+
+        h2 {
+            @include var.headerLinearGradient;
+        }
+
+        p {
+            @include var.headerLinearGradient;
+            font-size: var.$fontSize;
+            font-weight: 500; 
+        }
+
+        .descriptionLong {
+            display: none;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            background: none;
+            border: 1px solid var.$hrefColor;
+            border-radius: 0.3rem;
+            @include var.headerLinearGradient;
+            font-family: var.$fontFamily;
+            font-size: var.$fontSize;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    }
+    
+
+    iframe {
+        margin: 2rem 1rem;
+        width: 100%;
+        max-width: 40rem; 
+        height: 30rem;
+        border-radius: 1rem;
+        border-top: 0.5rem solid var.$hrefColor;
+        border-bottom: 0.5rem solid var.$hrefColor;
+        box-shadow: 0.5rem 1rem 1rem var.$fontColor;
     }
 }
 
@@ -67,8 +167,16 @@
     .property {
         .image-slider {
             img {
-                max-height: 14rem;
+                height: 20rem;
             }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        iframe {
+            height: 20rem;
         }
     }
 }

@@ -8,7 +8,7 @@
   width: 100%;
   height: 100%;
   border-radius: 0.5rem;
-  box-shadow: 10px 15px 15px #222;
+  box-shadow: 10px 15px 15px #333;
 }
 .card .header {
   position: absolute;
@@ -44,7 +44,7 @@
 }
 .card .images img {
   margin: 0.1rem 0.3rem;
-  border: 1.5px solid #222;
+  border: 1.5px solid #333;
   height: 2rem;
   width: 2rem;
   cursor: zoom-in;
@@ -97,7 +97,7 @@
   padding: 0.3rem 0.6rem;
   background: #FF8008; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: #222;
+  color: #333;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: 1rem;
@@ -109,6 +109,6 @@
 }
 .card .button button:hover {
   background: #FFC837;
-  color: #222;
+  color: #333;
   transform: scale(1.2);
 }/*# sourceMappingURL=card.css.map */

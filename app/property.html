@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Reality in US</title>
 </head>
@@ -25,15 +25,54 @@
                     <img src="${photo}" alt="">
                 </div>
                 <button class="right" onclick="moveRight()"><i class="fa-solid fa-play"></i></button>
+                <h1>${agent}</h1>
             </div>
-            <div class="details">
-                <div class="description">
-                    <p>${description}</p>
+            <h1>$${price} - ${prop_status}</h1>
+            <div class="cards">
+                <div class="card">
+                    <ul>
+                        <li><p>property status: <span>${prop_status}</span></p></li>
+                        <li><p>status: <span>${status}</span></p></li>
+                        <li><p>type: <span>${type}</span></p></li>
+                        <li><p>bedrooms: <span>${beds}</span></p></li>
+                        <li><p>bathrooms: <span>${baths}</span></p></li>
+                        <li><p>sqft: <span>${lot_sqft}</span></p></li>
+                        <li><p>price: <span>$${price}</span></p></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <ul>
+                        <li><p>city: <span>${city}</span></p></li>
+                        <li><p>country: <span>${country}</span></p></li>
+                        <li><p>county: <span>${county}</span></p></li>
+                        <li><p>neighborhood: <span>${neighborhood}</span></p></li>
+                        <li><p>line: <span>${line}</span></p></li>
+                        <li><p>postal <span>code: ${postal_code}</span></p></li>
+                        <li><p>state: <span>${state}</span></p></li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Agent</h3>
+                    <br>
+                    <br>
+                    <ul>
+                        <li><p><i class="fa-solid fa-user"></i> <span>${agentName}</span></p></li>
+                        <li><p><i class="fa-solid fa-phone"></i> <span>${agentPhone}</span></p></li>
+                        <li><p><i class="fa-solid fa-envelope"></i> <span>${agentEmail}</span></p></li>
+                    </ul>
                 </div>
             </div>
-            <iframe 
-                  width="600" 
-                  height="500" 
+            <div class="description">
+                <h2>Description</h2>
+                <br><br>
+                <p class="descriptionShort">${descriptionShort}...</p>
+                <p class="descriptionLong">${description}</p>
+                <br>
+                <button onclick="descriptionBtn(this)">Show More</button>
+                <br>
+            </div>
+            <iframe  
                   frameborder="0" 
                   scrolling="no" 
                   marginheight="0" 

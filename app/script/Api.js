@@ -11,7 +11,7 @@ class Api{
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '3337f056d7msh534cb4347948aa4p111d30jsn6fd3ba532175',
+                'X-RapidAPI-Key': 'f66eaf9950msh601064ac00e4178p13ef1ajsn74b5ed0d55fc',
                 'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
             }
         };
@@ -32,7 +32,7 @@ class Api{
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '3337f056d7msh534cb4347948aa4p111d30jsn6fd3ba532175',
+                'X-RapidAPI-Key': 'f66eaf9950msh601064ac00e4178p13ef1ajsn74b5ed0d55fc',
                 'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
             }
         };
@@ -53,7 +53,7 @@ class Api{
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '3337f056d7msh534cb4347948aa4p111d30jsn6fd3ba532175',
+                'X-RapidAPI-Key': 'f66eaf9950msh601064ac00e4178p13ef1ajsn74b5ed0d55fc',
                 'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
             }
         };

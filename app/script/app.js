@@ -57,8 +57,8 @@ const displayAllProperties = (data) => {
 		template_property = template_property.replaceAll('${imgTwo}', item?.photo ? item?.photo : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbGoeZg06hhqGsjJ-DrxjgEmU5o7Jua2vB9Q&usqp=CAU');;
 		template_property = template_property.replaceAll('${imgThree}', item?.photo ? item?.photo : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbGoeZg06hhqGsjJ-DrxjgEmU5o7Jua2vB9Q&usqp=CAU');
 		template_property = template_property.replaceAll('${imgFour}', item?.photo ? item?.photo : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbGoeZg06hhqGsjJ-DrxjgEmU5o7Jua2vB9Q&usqp=CAU');  
-		template_property = template_property.replaceAll('${purpose}', changePurpose(item.prop_status));
-		template_property = template_property.replaceAll('${type}', changePurpose(item.prop_type)); 
+		template_property = template_property.replaceAll('${purpose}', moveUnderscore(item.prop_status));
+		template_property = template_property.replaceAll('${type}', moveUnderscore(item.prop_type)); 
 		template_property = template_property.replaceAll('${baths}', item.baths);  
 		template_property = template_property.replaceAll('${beds}', item.beds);  
 		template_property = template_property.replaceAll('${price}', item.price);  
@@ -69,21 +69,20 @@ const displayAllProperties = (data) => {
 	placeForProperty.innerHTML = properties;
 } 
 
-//Change the name then return this name 
-const changePurpose = (purpose) => {
-	switch (purpose) {
-		case 'for_rent':
-			purpose = 'for rent';
-			break;
-		case 'for_sale':
-			purpose = 'for sale';
-			break;
-		case 'single_family':
-			purpose = 'single family';
-			break;
-	}
+//Function for replace the underscore with the empty space
+const moveUnderscore = (underscore) => {
+    underscore = underscore.replaceAll('_', ' ');
 
-	return purpose;
+    return underscore;
+}
+
+//Dropdown menu options for the sale or rent
+const forSale = () => {
+	displayAllProperties(propertiesForSale);
+}
+
+const forRent = () => {
+	displayAllProperties(propertiesForRent);
 }
 
 //Filter the data by the city by name
@@ -119,26 +118,22 @@ filterAndSortByOptions.addEventListener('change', (e) => {
 			break;
 		case 'rent-higher':
 			let sortByHigherPriceForRent = propertiesForRent.sort((a, b) => 
-				b.price_raw - a.price_raw
-				);
+				b.price_raw - a.price_raw );
 			displayAllProperties(sortByHigherPriceForRent);
 			break;
 		case 'rent-lower':
 			let sortByLowerPriceForRent = propertiesForRent.sort((a, b) => 
-				a.price_raw - b.price_raw
-				);
+				a.price_raw - b.price_raw );
 			displayAllProperties(sortByLowerPriceForRent);
 			break;
 		case 'sale-higher':
 			let sortByHigherPriceForSale = propertiesForSale.sort((a, b) => 
-				b.price_raw - a.price_raw
-				);
+				b.price_raw - a.price_raw );
 			displayAllProperties(sortByHigherPriceForSale);
 			break;
 		case 'sale-lower':
 			let sortByLowerPriceForSale = propertiesForSale.sort((a, b) => 
-				a.price_raw - b.price_raw
-				);
+				a.price_raw - b.price_raw );
 			displayAllProperties(sortByLowerPriceForSale);
 			break;
 		case 'apartment':
