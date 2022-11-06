@@ -23,6 +23,28 @@ $hrefHover: #FFC837;
     cursor: pointer;
 }
 
+@mixin propBox {
+    @include center;
+    flex-direction: column;
+    @include backgroundColorHeader;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0.5rem 1rem 1rem $fontColor;
+}
+
+@mixin propButton {
+    padding: 0.5rem 1rem;
+    background: none;
+    border: 1px solid $hrefColor;
+    border-radius: 0.3rem;
+    @include headerLinearGradient;
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    font-weight: 700;
+    cursor: pointer;
+}
+
 @mixin backgroundColorHeader {
     background: #000000;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */

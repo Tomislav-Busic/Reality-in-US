@@ -11,6 +11,8 @@
 </head>
 <body>
     
+    <button class="return" onclick="returnBtn()"><i class="fa-solid fa-caret-left"></i> Return</button>
+
     <main id="place_property_id">
 
     </main>
@@ -51,7 +53,6 @@
                         <li><p>state: <span>${state}</span></p></li>
                     </ul>
                 </div>
-                
                 <div class="card">
                     <h3>Agent</h3>
                     <br>
@@ -71,6 +72,18 @@
                 <br>
                 <button onclick="descriptionBtn(this)">Show More</button>
                 <br>
+            </div>
+            <div class="rate">
+                <h2 class="rate-title"></h2>
+                <br>
+                <div class="rate-calculator">
+                    <h3>$<span class="price">${price}</span> x</h3>
+                    <input type="number" min="0" value="0"> 
+                    <h3 class="result">= </h3>
+                </div>
+                <button onclick="calculateRate(this)">Calculate</button>
+                <br>
+                <h2 class="result-title"></h2>
             </div>
             <iframe  
                   frameborder="0" 

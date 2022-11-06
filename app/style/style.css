@@ -316,6 +316,23 @@ main .cards {
   transform: scale(1.2);
 }
 
+.return {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: #000000; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #FF8008;
+  border: 1px solid #FF8008;
+  border-radius: 0.3rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 100;
+}
+
 .property {
   width: 100%;
   min-height: 100vh;
@@ -424,16 +441,19 @@ main .cards {
   font-weight: 500;
 }
 .property .description {
-  margin: 2rem 1rem;
-  padding: 1rem;
-  width: 100;
-  max-width: 60rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   background: #000000; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  text-align: center;
+  margin: 1rem;
+  padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0.5rem 1rem 1rem #333;
-  transition: all 0.5s ease-in-out;
+  width: 100;
+  max-width: 60rem;
+  text-align: center;
 }
 .property .description h2 { /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -463,6 +483,64 @@ main .cards {
   font-weight: 700;
   cursor: pointer;
 }
+.property .rate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #000000; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0.5rem 1rem 1rem #333;
+  margin-top: 3rem;
+  padding: 2rem;
+  text-align: center;
+}
+.property .rate h1, .property .rate h2, .property .rate h3 { /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.property .rate .rate-calculator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.property .rate .rate-calculator input {
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border: 2px solid #FF8008;
+  border-radius: 0.5rem;
+  background: #000000; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #FF8008;
+  font-size: 1.1rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 0.5rem;
+  width: 4rem;
+}
+.property .rate .rate-calculator input:focus {
+  outline: none;
+  border: 2px solid #FFC837;
+}
+.property .rate button {
+  padding: 0.5rem 1rem;
+  background: none;
+  border: 1px solid #FF8008;
+  border-radius: 0.3rem; /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 2rem;
+}
 .property iframe {
   margin: 2rem 1rem;
   width: 100%;
@@ -483,5 +561,8 @@ main .cards {
   }
   .property iframe {
     height: 20rem;
+  }
+  .property .rate {
+    padding: 1rem;
   }
 }/*# sourceMappingURL=style.css.map */

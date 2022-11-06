@@ -11,7 +11,7 @@ class Api{
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'f66eaf9950msh601064ac00e4178p13ef1ajsn74b5ed0d55fc',
+                'X-RapidAPI-Key': '31fe7afcc3msh99f6ae87c996504p1e500ejsn39a12030dfab',
                 'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
             }
         };
@@ -32,13 +32,13 @@ class Api{
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'f66eaf9950msh601064ac00e4178p13ef1ajsn74b5ed0d55fc',
+                'X-RapidAPI-Key': '31fe7afcc3msh99f6ae87c996504p1e500ejsn39a12030dfab',
                 'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
             }
         };
 
         try {
-            const response = await fetch('https://realty-in-us.p.rapidapi.com/properties/list-for-rent?state_code=NY&city=New%20York%20City&limit=100&offset=0&sort=relevance', options);
+            const response = await fetch('https://realty-in-us.p.rapidapi.com/properties/list-for-rent?state_code=NY&city=New%20York%20City&limit=100&offset=0&sort=relevance', options)
             const data = await response.json();
             let listings = data.listings;
 
@@ -53,7 +53,7 @@ class Api{
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'f66eaf9950msh601064ac00e4178p13ef1ajsn74b5ed0d55fc',
+                'X-RapidAPI-Key': '31fe7afcc3msh99f6ae87c996504p1e500ejsn39a12030dfab',
                 'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
             }
         };

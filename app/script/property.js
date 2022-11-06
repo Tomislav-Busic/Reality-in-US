@@ -1,8 +1,13 @@
 let placeForTemplate = document.getElementById('place_property_id'); 
 let pictures = undefined; 
 let imgNum = 0;
+let statusProperty;
 
 
+//Return btn
+const returnBtn = () => {
+    window.location.href = '/';
+}
 
 //Get the id of the product, then send this id in class Api() and return the property with this id 
 async function getProperty() {
@@ -36,9 +41,9 @@ const displayProperty = (item) => {
     template_property = template_property.replaceAll('${line}', item?.address.line);
     template_property = template_property.replaceAll('${postal_code}', item?.address.postal_code);
     template_property = template_property.replaceAll('${state}', item?.address.state);
-    template_property = template_property.replaceAll('${agentName}', item?.advertisers['0'].name);
-    template_property = template_property.replaceAll('${agentPhone}', item?.advertisers['0'].phone);
-    template_property = template_property.replaceAll('${agentEmail}', item?.advertisers['0'].email);
+    template_property = template_property.replaceAll('${agentName}', item?.advertisers?.['0']?.name ? item.advertisers['0'].name : item?.agent.name);
+    template_property = template_property.replaceAll('${agentPhone}', item?.advertisers?.['0']?.phone ? item.advertisers['0'].phone : item?.agent.phone1.number);
+    template_property = template_property.replaceAll('${agentEmail}', item?.advertisers?.['0']?.email ? item.advertisers['0'].email : item?.agent.email);
     template_property = template_property.replaceAll('${descriptionShort}', item?.description.substring(0, 50));
     template_property = template_property.replaceAll('${description}', item?.description);
     template_property = template_property.replaceAll('${lat}', item.address.lat);
@@ -56,6 +61,15 @@ const displayProperty = (item) => {
 
     pictures = document.querySelectorAll('#images_place_id img');
 
+    //Set the data for diferent status of the property
+    statusProperty = item?.prop_status;
+    let title = document.querySelector('.rate .rate-title');
+
+    if (statusProperty === 'for_sale') {
+        title.innerText = 'Check it out your monthly rate for buying this poperty';
+    } else {
+        title.innerText = 'Check it out your yearly price for rent this property';
+    }
 }
 
 
@@ -113,6 +127,40 @@ const moveUnderscore = (underscore) => {
     underscore = underscore.replaceAll('_', ' ');
 
     return underscore;
+}
+
+//Function for calculate the rate of this property
+const calculateRate = (btn) => {
+    let parentEl = btn.closest('.rate');
+    let years = parentEl.querySelector('.rate-calculator > input').value; 
+    let calcResult = parentEl.querySelector('.result'); 
+    let price = parentEl.querySelector('.rate-calculator > h3 .price').innerText;
+    let resultTitle = parentEl.querySelector('.result-title');
+    years = parseInt(years);
+    price = parseInt(price);
+
+    if (years > 0) {
+        if (statusProperty === 'for_sale') {
+            //Calculating the monthly rate for buying property
+
+            let months = price / 12;
+            let result = months / years;
+            result = result.toFixed(2);
+            
+            calcResult.innerText = `= $${result}`;
+            resultTitle.innerText = `The monthly rate for the purchase of this property for ${years} year${years > 1 ? 's' : ''} is $${result}`;
+        } else {
+            //Calculating price for the yeraly rent of the property
+
+            let months = price * 12;
+            let result = months * years;
+
+            calcResult.innerText = `= $${result}`;
+            resultTitle.innerText = `The price for renting this property for ${years} year${years > 1 ? 's' : ''} follows $${result}`;
+        }
+    } else {
+        resultTitle.innerText = 'Please insert the value bafore you calculating :)';
+    }
 }
 
 getProperty();
